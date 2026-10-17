@@ -14,7 +14,7 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.PixelFormats;
 using ImageSharpImage = SixLabors.ImageSharp.Image;
-using ImageSharpRgbaImage = SixLabors.ImageSharp.Image<Rgba32>;
+using ImageSharpRgbaImage = SixLabors.ImageSharp.Image<SixLabors.ImageSharp.PixelFormats.Rgba32>;
 using SixLabors.ImageSharp.Processing;
 
 namespace LichtbildStudio;
@@ -106,7 +106,7 @@ public partial class MainWindow : Window
             _working?.Dispose();
 
             await using var stream = File.OpenRead(path);
-            _original = await ImageSharpImage.LoadAsync<Rgba32>(stream);
+            _original = await ImageSharpImage.LoadAsync<SixLabors.ImageSharp.PixelFormats.Rgba32>(stream);
             _working = _original.Clone();
 
             ResetSlidersWithoutPreview();
