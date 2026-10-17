@@ -1,0 +1,21 @@
+LICHTBILD STUDIO – CLEAN MAC BUILD V3
+
+Diese Version enthält:
+- korrigierte MainWindow.axaml.cs ohne den Image/ImageSharp-Konflikt
+- genau eine Projektdatei
+- GitHub-Workflow für Apple Silicon und Intel
+- Workflow findet die Projektdatei auch dann, wenn sie in einem Unterordner liegt
+
+WICHTIG:
+Die Dateien des ZIP-Inhalts sollen im GitHub-Repository liegen.
+Die Workflow-Datei muss unter:
+.github/workflows/build-macos.yml
+
+Die entscheidende C#-Datei ist:
+MainWindow.axaml.cs
+
+Der bisherige Fehler
+CS0104: 'Image' is an ambiguous reference
+ist in dieser Version beseitigt.
+
+Die NU1902-Warnung zu ImageSharp 3.1.6 ist weiterhin nur eine Warnung und stoppt den Build nicht.
